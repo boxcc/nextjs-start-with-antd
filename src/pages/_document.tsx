@@ -25,19 +25,7 @@ export default class CustomDocument extends Document {
 
           {/* <meta name="referrer" content="strict-origin-when-cross-origin" /> */}
           <link rel="icon" href="/favicon.png" />
-          <link rel="preconnect" href="https://img.studyinnewzealand.cn" />
-          <link rel="preconnect" href="https://res.wx.qq.com" />
-          <link
-            rel="preload"
-            as="image"
-            href="https://img.studyinnewzealand.cn/home-bg-new.jpeg"
-          />
-          <link
-            rel="preload"
-            as="image"
-            href="https://img.studyinnewzealand.cn/location-bg-new.jpeg"
-          />
-          <meta name="description" content="新西兰学习之旅，就地灵活启航" />
+          <meta name="description" content="网站描述" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta
             name="apple-mobile-web-app-status-bar-style"
