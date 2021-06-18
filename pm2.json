@@ -1,0 +1,32 @@
+{
+  "apps": {
+    "name": "demo",
+    "script": "./server.js",
+    "cwd": "./",
+    "args": "",
+    "interpreter": "",
+    "interpreter_args": "",
+    "watch": false,
+    "ignore_watch": ["node_modules", "logs", "static"],
+    "exec_mode": "cluster",
+    "instances": "max",
+    "max_memory_restart": "1024M",
+    "error_file": "./logs/app-err.log",
+    "out_file": "./logs/app-out.log",
+    "merge_logs": true,
+    "log_date_format": "YYYY-MM-DD HH:mm:ss",
+    "min_uptime": "60s",
+    "max_restarts": 30,
+    "autorestart": true,
+    "cron_restart": "",
+    "restart_delay": 3000,
+    "env": {
+      "PORT": 5001,
+      "NODE_ENV": "production"
+    },
+    "env_dev": {
+      "PORT": 3000,
+      "NODE_ENV": "dev"
+    }
+  }
+}
