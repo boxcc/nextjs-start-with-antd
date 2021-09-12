@@ -30,10 +30,5 @@ module.exports = withBundleAnalyzer(
 
       return config;
     },
-
-    future: {
-      // if you use webpack5
-      webpack5: true,
-    },
   }),
 );
