@@ -21,7 +21,8 @@
     "postinstall": "husky install",
     "commit": "cz",
     "pm2": "cross-env NODE_LOG_DIR=/tmp ENABLE_NODE_LOG=YES pm2 start pm2.json",
-    "pm2:restart": "cross-env NODE_LOG_DIR=/tmp ENABLE_NODE_LOG=YES pm2 restart pm2.json"
+    "pm2:restart": "cross-env NODE_LOG_DIR=/tmp ENABLE_NODE_LOG=YES pm2 restart pm2.json",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "lint-staged": {
     "./src/**/*.{ts,js,jsx,tsx}": [
@@ -43,11 +44,17 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-helmet-async": "1.0.9",
+    "react-query": "3.32.3",
     "serverless-mysql": "1.5.4"
   },
   "devDependencies": {
     "@commitlint/cli": "12.1.4",
     "@commitlint/config-conventional": "12.1.4",
+    "@graphql-codegen/cli": "2.3.0",
+    "@graphql-codegen/introspection": "2.1.0",
+    "@graphql-codegen/typescript": "2.4.0",
+    "@graphql-codegen/typescript-operations": "2.2.0",
+    "@graphql-codegen/typescript-react-query": "3.1.1",
     "@next/bundle-analyzer": "11.1.2",
     "@types/node": "14.17.0",
     "@types/react": "17.0.8",
