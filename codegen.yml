@@ -1,5 +1,5 @@
 overwrite: true
-schema: "http://localhost:2337/graphql"
+schema: ${NEXT_PUBLIC_GQL_ENDPOINT}
 documents: "src/**/*.graphql"
 generates:
   src/generated/graphql.ts:
@@ -9,7 +9,7 @@ generates:
       - "typescript-react-query"
     config:
       fetcher: '@/utils/fetcher#fetcher'
-      
+
       exposeQueryKeys: true
       exposeFetcher: true
   src/generated/graphql.schema.json:
