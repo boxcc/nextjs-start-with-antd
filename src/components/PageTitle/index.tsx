@@ -1,23 +1,36 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import { NextSeo } from 'next-seo';
 
 interface Props {
   title: React.ReactNode;
+  description?: string;
+  keywords?: string;
   disableSiteName?: boolean;
 }
 
-const PageTitle: React.FC<Props> = ({ title, disableSiteName = false }) => {
-  const siteName = disableSiteName
-    ? ``
-    : ` - ${process.env.NEXT_PUBLIC_SITE_NAME}`;
+const PageTitle: React.FC<Props> = ({
+  title,
+  description,
+  disableSiteName = false,
+  keywords,
+}) => {
+  const newTitle = title || process.env.NEXT_PUBLIC_SITE_NAME;
+  const siteName =
+    disableSiteName || newTitle === process.env.NEXT_PUBLIC_SITE_NAME
+      ? ``
+      : ` - ${process.env.NEXT_PUBLIC_SITE_NAME}`;
 
   return (
-    <Helmet>
-      <title>
-        {title}
-        {siteName}
-      </title>
-    </Helmet>
+    <NextSeo
+      title={siteName}
+      description={description}
+      additionalMetaTags={[
+        {
+          name: `keywords`,
+          content: keywords || ``,
+        },
+      ]}
+    />
   );
 };
 
