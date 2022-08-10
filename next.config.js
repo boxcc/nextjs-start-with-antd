@@ -23,10 +23,22 @@ module.exports = withBundleAnalyzer(
 
     // Other Config Here...
 
-    webpack(config, { isServer, dev }) {
-      if (!isServer && !dev) {
-        config.optimization.splitChunks.cacheGroups.commons.minChunks = 2;
-      }
+    webpack(config) {
+      config.module.rules.push({
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'babel-loader',
+          },
+          {
+            loader: '@svgr/webpack',
+            options: {
+              babel: false,
+              icon: true,
+            },
+          },
+        ],
+      });
 
       return config;
     },
