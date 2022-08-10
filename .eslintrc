@@ -45,7 +45,8 @@
         "aspects": ["invalidHref", "preferButton"]
       }
     ],
-    "import/no-extraneous-dependencies": "off"
+    "import/no-extraneous-dependencies": "off",
+    "jsx-a11y/anchor-has-content": "off"
   },
   "overrides": [
     {
@@ -67,7 +68,9 @@
             "avoidEscape": true
           }
         ],
-        "@typescript-eslint/no-empty-interface": "off"
+        "@typescript-eslint/no-empty-interface": "off",
+        "import/order": "off",
+        "react/function-component-definition": "off"
       }
     }
   ],
