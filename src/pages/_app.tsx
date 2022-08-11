@@ -1,7 +1,10 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import { Hydrate } from 'react-query/hydration';
+import {
+  QueryClient,
+  QueryClientProvider,
+  Hydrate,
+} from '@tanstack/react-query';
 import { useCreation } from 'ahooks';
 
 require(`@/styles/global.less`);
