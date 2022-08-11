@@ -26,12 +26,12 @@ module.exports = {
         ],
         defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
         safelist: ['html', 'body'],
-        // extractors: [
-        //   {
-        //     extractor: (content) => content.match(/([a-zA-Z-]+)(?= {)/g) || [],
-        //     extensions: ['css'],
-        //   },
-        // ],
+        extractors: [
+          {
+            extractor: (content) => content.match(/([a-zA-Z-]+)(?= {)/g) || [],
+            extensions: ['css'],
+          },
+        ],
       },
     ],
   ],
