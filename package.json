@@ -9,10 +9,7 @@
     "analyze": "cross-env ANALYZE=true next build",
     "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
     "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build",
-    "release": "standard-version",
-    "release:major": "standard-version --release-as major",
-    "release:minor": "standard-version --release-as minor",
-    "release:patch": "standard-version --release-as patch",
+    "sver": "standard-version",
     "dev": "next",
     "build": "next build",
     "postbuild": "next-sitemap",
@@ -25,7 +22,7 @@
     "pm2": "cross-env NODE_LOG_DIR=/tmp ENABLE_NODE_LOG=YES pm2 start pm2.json",
     "pm2:restart": "cross-env NODE_LOG_DIR=/tmp ENABLE_NODE_LOG=YES pm2 restart pm2.json",
     "codegen": "cross-env DOTENV_CONFIG_PATH=./.env.local graphql-codegen --config codegen.yml --require dotenv/config",
-    "script:release": "node ./scripts/release"
+    "release": "node ./scripts/release"
   },
   "lint-staged": {
     "./src/**/*.{ts,js,jsx,tsx}": [
