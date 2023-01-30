@@ -6,26 +6,46 @@ import Document, {
   NextScript,
   DocumentContext,
 } from 'next/document';
-
-// avoid CSS animation transition flashing
-export const DISABLE_SSR_TRANSITION = `disable-SSR-transition`;
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 
 export default class CustomDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
+    const cache = createCache();
+    const originalRenderPage = ctx.renderPage;
+
+    ctx.renderPage = () =>
+      originalRenderPage({
+        enhanceApp: (App) => (props) =>
+          (
+            <StyleProvider cache={cache}>
+              <App {...props} />
+            </StyleProvider>
+          ),
+      });
+
     const initialProps = await Document.getInitialProps(ctx);
 
-    return { ...initialProps };
+    return {
+      ...initialProps,
+      styles: (
+        <>
+          {initialProps.styles}
+          <style
+            data-test="extract"
+            dangerouslySetInnerHTML={{ __html: extractStyle(cache) }}
+          />
+        </>
+      ),
+    };
   }
 
   render() {
     return (
-      <Html lang="en" className="no-js">
+      <Html lang="zh-cmn-Hans">
         <Head>
           <meta charSet="UTF-8" />
-
           {/* <meta name="referrer" content="strict-origin-when-cross-origin" /> */}
           <link rel="icon" href="/favicon.png" />
-          <meta name="description" content="网站描述" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta
             name="apple-mobile-web-app-status-bar-style"

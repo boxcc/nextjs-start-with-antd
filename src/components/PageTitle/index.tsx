@@ -17,8 +17,8 @@ const PageTitle: React.FC<Props> = ({
   const newTitle = title || process.env.NEXT_PUBLIC_SITE_NAME;
   const siteName =
     disableSiteName || newTitle === process.env.NEXT_PUBLIC_SITE_NAME
-      ? ``
-      : ` - ${process.env.NEXT_PUBLIC_SITE_NAME}`;
+      ? `${process.env.NEXT_PUBLIC_SITE_NAME}`
+      : `${newTitle} - ${process.env.NEXT_PUBLIC_SITE_NAME}`;
 
   return (
     <NextSeo

@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import { Button } from 'antd';
 import ReloadOutlined from '@ant-design/icons/ReloadOutlined';
 
-import styles from './styles.module.less';
+import styles from './styles.module.css';
 
-interface Props {}
+interface Props extends PropsWithChildren {}
 
 interface State {
   hasError: boolean;
@@ -13,7 +13,7 @@ interface State {
 
 // const CATCH_HAS_REFRESH_URL_PARAM = '____ErrorBoundary';
 
-export class ErrorBoundary extends React.Component<Props, State> {
+export default class ErrorBoundary extends React.Component<Props, State> {
   static getDerivedStateFromError() {
     return { hasError: true };
   }
@@ -30,10 +30,10 @@ export class ErrorBoundary extends React.Component<Props, State> {
     this.setState({ errorInfo: err.message });
   }
 
-  onRefresh = () => {
-    window.location.href = `/`;
-    // window.location.reload();
-  };
+  // onRefresh = () => {
+  //   // window.location.href = `/`;
+  //   window.location.reload();
+  // };
 
   render() {
     const { hasError, errorInfo } = this.state;
@@ -49,7 +49,9 @@ export class ErrorBoundary extends React.Component<Props, State> {
             <Button
               type="primary"
               icon={<ReloadOutlined />}
-              onClick={this.onRefresh}
+              onClick={() => {
+                window.location.reload();
+              }}
               className={styles[`refresh-button`]}
             >
               Reload
