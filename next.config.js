@@ -10,27 +10,17 @@ const withPlugins = require('next-compose-plugins');
 const nextConfig = {
   reactStrictMode: true,
 
-  // webpack(config) {
-  //   config.module.rules.push({
-  //     test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-  //     use: [
-  //       {
-  //         loader: 'babel-loader',
-  //       },
-  //       {
-  //         loader: '@svgr/webpack',
-  //         options: {
-  //           babel: false,
-  //           icon: true,
-  //         },
-  //       },
-  //     ],
-  //   });
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/i,
+      issuer: /\.[jt]sx?$/,
+      use: ['@svgr/webpack'],
+    });
 
-  //   // config.plugins.push(new Hsuc(Object.assign(HsucOptions, options)));
+    // config.plugins.push(new Hsuc(Object.assign(HsucOptions, options)));
 
-  //   return config;
-  // },
+    return config;
+  },
 
   swcMinify: true,
 

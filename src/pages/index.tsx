@@ -2,6 +2,7 @@ import { NextPage } from 'next';
 import { Button } from 'antd';
 import styles from '@/styles/Index.module.css';
 import PageTitle from '@/components/PageTitle';
+import Book from '@/../public/icon/book.svg'
 
 interface Props {}
 
@@ -15,6 +16,9 @@ const HomePage: NextPage<Props> = () => {
 
       <div className={styles.demo}>Demo</div>
       <div className="text-xl">tailwindcss</div>
+      <div className="bg-black">
+        <Book />
+      </div>
     </>
   );
 };
