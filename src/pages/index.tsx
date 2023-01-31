@@ -16,7 +16,7 @@ const HomePage: NextPage<Props> = () => {
 
       <div className={styles.demo}>Demo</div>
       <div className="text-xl">tailwindcss</div>
-      <div className="bg-black">
+      <div>
         <Book />
       </div>
     </>
