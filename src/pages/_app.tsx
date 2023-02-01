@@ -1,7 +1,7 @@
 import 'antd/dist/reset.css';
 import '@/styles/vars.css';
 import '@/styles/global.css';
-import React, { useEffect } from 'react';
+import React from 'react';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import {
@@ -27,16 +27,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       }),
     [],
   );
-
-  // const avoidCssAnimationFlashing = () => {
-  //   if (!isServer()) {
-  //     document.getElementById('preventFlashOfUnstyledContent')?.remove();
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   avoidCssAnimationFlashing();
-  // }, []);
 
   return (
     <>
