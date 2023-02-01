@@ -43,7 +43,7 @@ async function main() {
 
   shelljs.exec(`git flow release start 'v${newVersion}'`);
 
-  shelljs.exec(`yarn sver -- --release-as ${inputVersion} --skip.tag`);
+  shelljs.exec(`npm run sver -- --release-as ${inputVersion} --skip.tag`);
 
   shelljs.exec(
     `git flow release finish -m "chore(release): v${newVersion}" -p 'v${newVersion}'`,
